@@ -1,0 +1,80 @@
+/* Global background for the page */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #E3F2F9 0%, #A0D8EF 100%);
+    color: #0D3B66;
+    min-height: 100vh;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #13315C !important;
+    /* rich deep blue */
+    position: relative;
+    z-index: 10;
+    margin-bottom: 100px;
+}
+
+
+.navbar-brand,
+.nav-link {
+    color: #FAF9F6 !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover {
+    color: #F4A261 !important;
+}
+
+/* Optional: dropdown menu background */
+.dropdown-menu {
+    background-color: #13315C;
+    border: none;
+}
+
+.dropdown-item {
+    color: #FAF9F6;
+}
+
+.dropdown-item:hover {
+    background-color: #F4A261;
+    color: #0D3B66;
+}
+
+/* Buttons (if used elsewhere) */
+.btn-primary {
+    background-color: #F4A261;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #E76F51;
+}
+
+.logo {
+    width: 120px;
+    /* tai haluamasi leveys */
+    height: auto;
+    /* säilyttää kuvasuhteen */
+}
+
+h1 {
+    text-align: center;
+    color: #FAF9F6 !important;
+}
+
+.loggeduser-text {
+    color: #FAF9F6 !important;
+}
+
+.logout-text {
+    color: #FAF9F6 !important;
+}
+
+.logged-user-logo {
+    width: 30px;
+    height: auto;
+    margin-right: 8px;
+    margin-left: 8px;
+}
