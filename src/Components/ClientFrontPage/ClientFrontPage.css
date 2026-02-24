@@ -78,3 +78,37 @@ h1 {
     margin-right: 8px;
     margin-left: 8px;
 }
+
+
+.cards-row {
+    display: flex;
+    flex-direction: row;
+    /* Varmistaa että ovat vierekkäin */
+    justify-content: center;
+    /* Keskittää kortit sivulla */
+    gap: 24px;
+    margin: 0 30px;
+    flex-wrap: wrap;
+    /* Sallii rivinvaihdon jos näyttö on liian kapea */
+}
+
+/* Leveämpi kortti */
+.card-wide {
+    flex: 0 0 750px;
+    min-height: 300px;
+    border-radius: 15px;
+}
+
+/* Kapeampi kortti */
+.card-narrow {
+    flex: 0 0 350px;
+    min-height: 300px;
+    border-radius: 15px;
+}
+
+/* Mobiilissa allekkain */
+@media (max-width: 6px) {
+    .cards-row {
+        flex-direction: column;
+    }
+}

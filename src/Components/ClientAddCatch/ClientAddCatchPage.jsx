@@ -7,7 +7,7 @@ function ClientAddCatchPage() {
         <>
             <ClientNavbar />
             <div className="addcatch-content">
-                <h2>Kirjaa uusi saalis</h2>
+                <h1>Kirjaa uusi saalis</h1>
             </div>
             <div>
                 <Card className="mx-auto my-4 p-3 shadow" style={{ maxWidth: "1050px", borderRadius: "15px", minHeight: "300px" }}>
