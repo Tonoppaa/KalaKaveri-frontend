@@ -4,6 +4,7 @@ import ForgotPasswordForm from './Components/ForgotPasswordForm/ForgotPasswordFo
 import CreateNewUserForm from './Components/CreateNewUserForm/CreateNewUserForm.jsx';
 import ClientFrontPage from './Components/ClientFrontPage/ClientFrontPage.jsx';
 import ClientAddCatchPage from './Components/ClientAddCatch/ClientAddCatchPage.jsx';
+import ClientFishingAchievements from './Components/ClientFishingAchievements/ClientFishingAchievements.jsx';
 import './App.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/register" element={<CreateNewUserForm />} />
         <Route path="/clientfrontpage" element={<ClientFrontPage />} />
         <Route path="/add-catch" element={<ClientAddCatchPage />} />
+        <Route path="/achievements" element={<ClientFishingAchievements />} />
       </Routes>
     </>
   );

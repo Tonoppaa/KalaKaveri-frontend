@@ -1,0 +1,76 @@
+body {
+    background: linear-gradient(135deg, #0f172a, #0a2540, #0f766e);
+    min-height: 100vh;
+}
+
+/* Otsikko */
+h1 {
+    text-align: center;
+    color: #FAF9F6 !important;
+}
+
+.form-label {
+    color: #FAF9F6 !important;
+}
+
+/* Kortti (glassmorphism) */
+.catch-card {
+    max-width: 900px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.catch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* Inputit */
+.custom-input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.custom-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.custom-input:focus {
+    border-color: #38bdf8 !important;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* Napit */
+.save-btn {
+    background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.save-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(34, 197, 94, 0.5);
+}
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
