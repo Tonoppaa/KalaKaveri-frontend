@@ -17,14 +17,40 @@ body {
 }
 
 
+/* Moderni hover aaltoefekti kaikille Navbar-linkeille */
 .navbar-brand,
 .nav-link {
+    position: relative;
     color: #FAF9F6 !important;
+    /* perusvalkoinen */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand::after,
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    /* aaltoefektin sininen */
+    transition: width 0.4s ease;
+    border-radius: 2px;
 }
 
 .navbar-brand:hover,
 .nav-link:hover {
-    color: #F4A261 !important;
+    color: #38bdf8 !important;
+    /* hover-väri */
+}
+
+.navbar-brand:hover::after,
+.nav-link:hover::after {
+    width: 100%;
+    /* liukuu koko linkin alle */
 }
 
 /* Optional: dropdown menu background */
@@ -77,4 +103,85 @@ h1 {
     height: auto;
     margin-right: 8px;
     margin-left: 8px;
+}
+
+/* Moderni hover aaltoefekti kalastusteemaan */
+.loggeduser-link {
+    text-decoration: none;
+    color: #FAF9F6 !important;
+    /* perusvalkoinen */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.loggeduser-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    /* aaltoefektin sininen */
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+.loggeduser-link:hover {
+    color: #38bdf8;
+    /* väri vaihtuu hoverilla */
+}
+
+.loggeduser-link:hover::after {
+    width: 100%;
+    /* aaltoefekti liukuu koko linkin alle */
+}
+
+/* Dropdownin tausta pysyy aina tummana */
+.navbar .dropdown-menu {
+    background-color: #13315C !important;
+    /* tummansininen */
+    border: none;
+    padding-left: 0;
+}
+
+/* Dropdown-item teksti ja hover */
+.navbar .dropdown-item {
+    color: #FAF9F6 !important;
+    /* valkoinen teksti normaalitilassa */
+    background-color: transparent;
+    /* poistaa oletusvaalean taustan */
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    list-style: none;
+}
+
+/* Poistetaan hover- ja aktiivitaustan oletus */
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus,
+.navbar .dropdown-item:active {
+    background-color: #13315C !important;
+    /* sama kuin Navbar */
+    color: #38bdf8 !important;
+    /* hover-väri tekstille */
+}
+
+/* Aaltoefekti viiva */
+.navbar .dropdown-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #38bdf8;
+    /* aaltoefektin sininen */
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+.navbar .dropdown-item:hover::after {
+    width: 100%;
+    /* viiva liukuu koko elementin alle */
 }

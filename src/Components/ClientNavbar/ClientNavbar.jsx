@@ -25,7 +25,7 @@ function ClientNavbar() {
                         <NavDropdown title="Omat saaliit" className="me-5">
                             <NavDropdown.Item as={NavLink} to="/add-catch">Kirjaa saalis</NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item as={NavLink} to="/view-catch">Tarkastele saalis</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/browse-catch">Tarkastele saalis</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as={NavLink} to="/delete-catch">Poista saalis</NavDropdown.Item>
                         </NavDropdown>
@@ -45,7 +45,9 @@ function ClientNavbar() {
                     </Nav>
 
                     <Navbar.Text className="loggeduser-text">
-                        Tommi Kalliopuska
+                        <NavLink to="/personal-info" className="loggeduser-link">
+                            Tommi Kalliopuska
+                        </NavLink>
                     </Navbar.Text>
 
                     <img className="logged-user-logo" src="images/logged-user.png" alt="Logged-user" />

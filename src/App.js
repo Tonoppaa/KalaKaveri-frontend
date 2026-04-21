@@ -5,6 +5,8 @@ import CreateNewUserForm from './Components/CreateNewUserForm/CreateNewUserForm.
 import ClientFrontPage from './Components/ClientFrontPage/ClientFrontPage.jsx';
 import ClientAddCatchPage from './Components/ClientAddCatch/ClientAddCatchPage.jsx';
 import ClientFishingAchievements from './Components/ClientFishingAchievements/ClientFishingAchievements.jsx';
+import ClientPersonalInfo from './Components/ClientPersonalInfo/ClientPersonalInfo.jsx';
+import ClientBrowseCatch from './Components/ClientBrowseCatch/ClientBrowseCatch.jsx';
 import './App.css';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path="/clientfrontpage" element={<ClientFrontPage />} />
         <Route path="/add-catch" element={<ClientAddCatchPage />} />
         <Route path="/achievements" element={<ClientFishingAchievements />} />
+        <Route path="/personal-info" element={<ClientPersonalInfo />} />
+        <Route path="/browse-catch" element={<ClientBrowseCatch />} />
       </Routes>
     </>
   );
