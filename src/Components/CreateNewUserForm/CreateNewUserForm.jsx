@@ -1,41 +1,62 @@
 import './CreateNewUserForm.css';
-import bgVideo from '../../Assets/login-background.mp4';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { motion } from "framer-motion";
+import { FaUser, FaEnvelope, FaLock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 function CreateNewUserForm() {
     return (
-        <div className="form-container">
-            <video
-                className="bg-video"
-                autoPlay
-                loop
-                muted
-                playsInline
+        <div className="register-container">
+
+            {/* BACKGROUND */}
+            <div className="register-bg" />
+
+            {/* CARD */}
+            <motion.div
+                className="register-card"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
             >
-                <source src={bgVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+                <h1>🆕 Luo käyttäjä</h1>
+                <p className="subtitle">
+                    Luo uusi tili aloittaaksesi
+                </p>
 
+                {/* USERNAME */}
+                <div className="input-group">
+                    <FaUser className="input-icon" />
+                    <input type="text" placeholder="Käyttäjätunnus" />
+                </div>
 
-            <Form className="form-content">
-                <h1>Luo uusi käyttäjä</h1>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Link to="/login">
-                        Palaa takaisin
-                    </Link>
-                    <Form.Label>Sähköpostiosoite</Form.Label>
-                    <Form.Control type="email" placeholder="Kirjoita sähköpostiosoite" />
-                    <Form.Text className="text-muted">
-                        Me emme koskaan jaa sähköpostiasi kenellekään.
-                    </Form.Text>
-                </Form.Group>
+                {/* EMAIL */}
+                <div className="input-group">
+                    <FaEnvelope className="input-icon" />
+                    <input type="email" placeholder="Sähköpostiosoite" />
+                </div>
 
-                <Button variant="primary" type="submit">
-                    Palauta salasana
-                </Button>
-            </Form>
+                {/* PASSWORD */}
+                <div className="input-group">
+                    <FaLock className="input-icon" />
+                    <input type="password" placeholder="Salasana" />
+                </div>
+
+                {/* BUTTON */}
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="register-btn"
+                >
+                    Luo käyttäjä
+                </motion.button>
+
+                {/* LINKS */}
+                <div className="links">
+                    <p>
+                        Onko sinulla jo käyttäjätunnus?{" "}
+                        <Link to="/login">Palaa takaisin</Link>
+                    </p>
+                </div>
+            </motion.div>
         </div>
     );
 }

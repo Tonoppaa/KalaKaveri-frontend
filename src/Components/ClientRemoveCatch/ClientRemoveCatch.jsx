@@ -1,6 +1,6 @@
 import ClientNavbar from "../ClientNavbar/ClientNavbar";
 import "../ClientNavbar/ClientNavbar.css";
-import "./ClientBrowseCatch.css";
+import "./ClientRemoveCatch.css";
 
 import { Card, CardContent } from "../UI/Card";
 import { Fish, Calendar, Weight, MapPin } from "lucide-react";
@@ -42,7 +42,7 @@ const catches = [
     },
 ];
 
-export default function ClientBrowseCatch() {
+export default function ClientRemoveCatch() {
     const [selectedCatch, setSelectedCatch] = useState(null);
     const [filter, setFilter] = useState("");
 
@@ -51,11 +51,12 @@ export default function ClientBrowseCatch() {
     );
 
     return (
+
         <>
             <ClientNavbar />
 
             <div className="browse-page">
-                <h1 className="browse-title">🎣 Omat saaliit</h1>
+                <h1 className="browse-title">❌ Poista saalis</h1>
 
                 {/* FILTER */}
                 <input
@@ -112,13 +113,15 @@ export default function ClientBrowseCatch() {
                                 exit={{ scale: 0.8 }}
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <img src={selectedCatch.image}
+                                <img
+                                    src={selectedCatch.image}
                                     alt=""
                                     className="browse-modal-image" />
 
                                 <h2>{selectedCatch.species}</h2>
                                 <p>⚖️ {selectedCatch.weight}</p>
                                 <p>📅 {selectedCatch.date}</p>
+                                <p>📍 {selectedCatch.location}</p>
                             </motion.div>
                         </motion.div>
                     )}

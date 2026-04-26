@@ -1,37 +1,50 @@
 import './ForgotPasswordForm.css';
-import bgVideo from '../../Assets/login-background.mp4';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import { motion } from "framer-motion";
+import { FaEnvelope } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 function ForgotPasswordForm() {
     return (
-        <div className="form-container">
-            <video
-                className="bg-video"
-                autoPlay
-                loop
-                muted
-                playsInline
+        <div className="forgot-container">
+
+            {/* BACKGROUND */}
+            <div className="forgot-bg" />
+
+            {/* CARD */}
+            <motion.div
+                className="forgot-card"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
             >
-                <source src={bgVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+                <h1>🔐 Palauta salasana</h1>
+                <p className="subtitle">
+                    Syötä sähköpostiosoitteesi saadaksesi palautuslinkin
+                </p>
 
+                {/* EMAIL */}
+                <div className="input-group">
+                    <FaEnvelope className="input-icon" />
+                    <input
+                        type="email"
+                        placeholder="Sähköpostiosoite"
+                    />
+                </div>
 
-            <Form className="form-content">
-                <h1>Palauta salasana</h1>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Sähköpostiosoite</Form.Label>
-                    <Form.Control type="email" placeholder="Kirjoita sähköpostiosoite" />
-                    <Form.Text className="text-muted">
-                        Me emme koskaan jaa sähköpostiasi kenellekään.
-                    </Form.Text>
-                </Form.Group>
+                {/* BUTTON */}
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="forgot-btn"
+                >
+                    Lähetä palautuslinkki
+                </motion.button>
 
-                <Button variant="primary" type="submit">
-                    Palauta salasana
-                </Button>
-            </Form>
+                {/* LINKS */}
+                <div className="links">
+                    <Link to="/">Takaisin kirjautumiseen</Link>
+                </div>
+            </motion.div>
         </div>
     );
 }

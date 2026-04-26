@@ -7,6 +7,9 @@ import ClientAddCatchPage from './Components/ClientAddCatch/ClientAddCatchPage.j
 import ClientFishingAchievements from './Components/ClientFishingAchievements/ClientFishingAchievements.jsx';
 import ClientPersonalInfo from './Components/ClientPersonalInfo/ClientPersonalInfo.jsx';
 import ClientBrowseCatch from './Components/ClientBrowseCatch/ClientBrowseCatch.jsx';
+import ClientRemoveCatch from './Components/ClientRemoveCatch/ClientRemoveCatch.jsx';
+import LocationsPage from './Components/Locations/Locations.jsx';
+import ClientFishBank from './Components/ClientFishBank/ClientFishBank.jsx';
 import './App.css';
 
 function App() {
@@ -27,6 +30,9 @@ function App() {
         <Route path="/achievements" element={<ClientFishingAchievements />} />
         <Route path="/personal-info" element={<ClientPersonalInfo />} />
         <Route path="/browse-catch" element={<ClientBrowseCatch />} />
+        <Route path="/remove-catch" element={<ClientRemoveCatch />} />
+        <Route path="/locations" element={<LocationsPage />} />
+        <Route path="/fishbank" element={<ClientFishBank />} />
       </Routes>
     </>
   );

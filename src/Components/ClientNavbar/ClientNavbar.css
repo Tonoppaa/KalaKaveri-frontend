@@ -185,3 +185,62 @@ h1 {
     width: 100%;
     /* viiva liukuu koko elementin alle */
 }
+
+/* OVERLAY */
+.logout-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* MODAL */
+.logout-modal {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* BUTTONS */
+.logout-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.logout-confirm {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.logout-cancel {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #e9ecef;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* HOVER */
+.logout-confirm:hover {
+    background: #222;
+}
+
+.logout-cancel:hover {
+    background: #dcdcdc;
+}
