@@ -7,10 +7,17 @@ import { Fish, Trophy, Star, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+const medalTiers = [
+    { name: "Bronze", value: 10 },
+    { name: "Silver", value: 50 },
+    { name: "Gold", value: 200 },
+    { name: "Platinum", value: 500 },
+];
+
 const species = [
-    { name: "Ahven", levels: [10, 100, 1000], caught: 120 },
-    { name: "Hauki", levels: [5, 50, 500], caught: 42 },
-    { name: "Kuha", levels: [3, 30, 300], caught: 12 },
+    { name: "Ahven", tiers: medalTiers, caught: 120 },
+    { name: "Hauki", tiers: medalTiers, caught: 42 },
+    { name: "Kuha", tiers: medalTiers, caught: 12 },
 ];
 
 const achievements = [
@@ -19,15 +26,46 @@ const achievements = [
     { title: "Mestari", desc: "Sait 1000 kalaa yhteensä", icon: Star, unlocked: false },
 ];
 
-function getProgress(caught, levels) {
-    let currentLevel = 0;
-    for (let i = 0; i < levels.length; i++) {
-        if (caught >= levels[i]) currentLevel = i + 1;
+function getMedalColor(tierName) {
+    switch (tierName) {
+        case "Bronze":
+            return "#cd7f32";
+        case "Silver":
+            return "#c0c0c0";
+        case "Gold":
+            return "#ffd700";
+        case "Platinum":
+            return "#00e5ff";
+        default:
+            return "#94a3b8";
     }
-    const nextLevel = levels[currentLevel] || levels[levels.length - 1];
-    const prevLevel = levels[currentLevel - 1] || 0;
-    const progress = ((caught - prevLevel) / (nextLevel - prevLevel)) * 100;
-    return { currentLevel, nextLevel, progress: Math.min(progress, 100) };
+}
+
+function getProgress(caught, tiers) {
+    let currentIndex = -1;
+
+    for (let i = 0; i < tiers.length; i++) {
+        if (caught >= tiers[i].value) {
+            currentIndex = i;
+        }
+    }
+
+    const currentTier = tiers[currentIndex] || null;
+    const nextTier = tiers[currentIndex + 1] || null;
+
+    const prevValue = currentTier ? currentTier.value : 0;
+    const nextValue = nextTier ? nextTier.value : prevValue;
+
+    const progress = nextTier
+        ? ((caught - prevValue) / (nextValue - prevValue)) * 100
+        : 100;
+
+    return {
+        currentTier,
+        nextTier,
+        progress: Math.min(progress, 100),
+        isMax: !nextTier,
+    };
 }
 
 export default function ClientFishingAchievements() {
@@ -81,14 +119,18 @@ export default function ClientFishingAchievements() {
                 </button>
                 <div className="species-grid">
                     {species.map((fish) => {
-                        const { currentLevel, nextLevel, progress } = getProgress(fish.caught, fish.levels);
-                        const isMax = currentLevel >= fish.levels.length;
+                        const { currentTier, nextTier, progress, isMax } = getProgress(fish.caught, fish.tiers);
 
                         return (
                             <motion.div
                                 key={fish.name}
                                 whileHover={{ scale: 1.05 }}
-                                onClick={() => checkLevelUp(fish, currentLevel, fish.levels)}
+                                onClick={() => {
+                                    if (isMax) {
+                                        setLevelText(`${fish.name} maksimitaso saavutettu!`);
+                                        setLevelUp(true);
+                                    }
+                                }}
                             >
                                 <Card className={`fish-card ${isMax ? "max-level" : ""}`}>
                                     <CardContent className="fish-card-content">
@@ -107,7 +149,7 @@ export default function ClientFishingAchievements() {
                                             style={{
                                                 height: "12px",
                                                 borderRadius: "8px",
-                                                background: "linear-gradient(90deg, #38bdf8, #0ea5e9)",
+                                                background: `linear-gradient(90deg, ${getMedalColor(currentTier?.name)}, #0ea5e9)`,
                                                 position: "relative",
                                                 overflow: "hidden",
                                                 marginTop: "8px",
@@ -125,8 +167,22 @@ export default function ClientFishingAchievements() {
                                                 }}
                                             />
                                         </motion.div>
-                                        <p className="fish-level">
-                                            Taso {currentLevel} {isMax ? "(MAX)" : `→ seuraava: ${nextLevel}`}
+                                        <p
+                                            className="fish-level"
+                                            style={{
+                                                color: currentTier ? getMedalColor(currentTier.name) : "#94a3b8",
+                                                fontWeight: "600",
+                                            }}
+                                        >
+                                            {currentTier
+                                                ? `🏅 ${currentTier.name}`
+                                                : "Ei vielä tasoa"}
+
+                                            {" → "}
+
+                                            {isMax
+                                                ? "MAX"
+                                                : `${fish.caught} / ${nextTier.value}`}
                                         </p>
                                     </CardContent>
                                 </Card>

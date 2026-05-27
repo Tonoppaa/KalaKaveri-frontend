@@ -10,6 +10,7 @@ import ClientBrowseCatch from './Components/ClientBrowseCatch/ClientBrowseCatch.
 import ClientRemoveCatch from './Components/ClientRemoveCatch/ClientRemoveCatch.jsx';
 import LocationsPage from './Components/Locations/Locations.jsx';
 import ClientFishBank from './Components/ClientFishBank/ClientFishBank.jsx';
+import ClientCompetitionsPage from './Components/ClientCompetitionsPage/ClientCompetitionsPage.jsx';
 import './App.css';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/remove-catch" element={<ClientRemoveCatch />} />
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="/fishbank" element={<ClientFishBank />} />
+        <Route path="/competitions" element={<ClientCompetitionsPage />} />
       </Routes>
     </>
   );
