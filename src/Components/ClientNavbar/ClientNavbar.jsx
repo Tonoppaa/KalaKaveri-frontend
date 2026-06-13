@@ -16,7 +16,7 @@ function ClientNavbar() {
         <>
             <Navbar collapseOnSelect expand="lg" className="navbar">
                 <Container>
-                    <Navbar.Brand as={NavLink} to="/">
+                    <Navbar.Brand>
                         <img className="logo" src="images/kalakaveri-logo-fish.png" alt="Logo" />
                     </Navbar.Brand>
 

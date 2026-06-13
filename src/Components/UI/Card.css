@@ -1,14 +1,12 @@
 .card {
-    max-width: 400px;
     width: 100%;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    overflow: hidden;
-    box-sizing: border-box;
     height: 100%;
+    padding: 1rem;
+    border-radius: 16px;
+    box-sizing: border-box;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, .1);
 }
 
 .card-content {

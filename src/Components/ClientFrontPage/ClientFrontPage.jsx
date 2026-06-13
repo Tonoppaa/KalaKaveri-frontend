@@ -41,10 +41,15 @@ export default function ClientFrontPage() {
                             { icon: <Trophy />, value: 6, label: "Saavutusta" },
                             { icon: <Clock />, value: 3, label: "Tällä viikolla" },
                         ].map((stat) => (
-                            <motion.div key={stat.label} whileHover={{ scale: 1.05 }}>
+                            <motion.div
+                                key={stat.label}
+                                whileHover={{ scale: 1.05 }}
+                            >
                                 <Card className="stat-card">
                                     <CardContent>
-                                        <div className="stat-icon">{stat.icon}</div>
+                                        <div className="stat-icon">
+                                            {stat.icon}
+                                        </div>
 
                                         {loading ? (
                                             <Skeleton height={24} width="40%" />
@@ -63,51 +68,14 @@ export default function ClientFrontPage() {
                         ))}
                     </div>
 
-                    {/* TOP ROW */}
-                    <div className="top-row">
+                    {/* CONTENT GRID */}
+                    <div className="content-grid">
 
-                        {/* WEATHER */}
-                        <motion.div
-                            className="card"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                        >
-                            <Card className="front-card"> <CardContent> <h2>🌦️ Sää tänään</h2> <p>Tarkista sää ennen kalastusta ☀️🌧️</p> </CardContent> </Card>
-                        </motion.div>
-
-                        {/* CHART */}
-                        <motion.div
-                            className="card"
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                        >
-                            <Card className="front-card">
+                        {/* RECENT ACTIVITY */}
+                        <motion.div whileHover={{ scale: 1.03 }}>
+                            <Card className="stat-card">
                                 <CardContent>
-                                    <h2>📊 Saaliit kuukausittain</h2>
-
-                                    {loading ? (
-                                        <Skeleton height={200} />
-                                    ) : (
-                                        <CatchChart />
-                                    )}
-                                </CardContent>
-                            </Card>
-                        </motion.div>
-                    </div>
-
-                    {/* BOTTOM ROW */}
-                    <div className="bottom-row">
-
-                        {/* ACTIVITY */}
-                        <motion.div
-                            className="card"
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                        >
-                            <Card className="front-card">
-                                <CardContent>
-                                    <h2>Viimeaikainen toiminta</h2>
+                                    <h2>🎣 Viimeaikainen toiminta</h2>
 
                                     <div className="activity">
                                         {loading ? (
@@ -120,12 +88,16 @@ export default function ClientFrontPage() {
                                             <>
                                                 <div className="activity-item">
                                                     <p>🎣 Lisäsit saaliin</p>
-                                                    <span>17.11.2025 - Hauki, Päijänne</span>
+                                                    <span>
+                                                        17.11.2025 - Hauki, Päijänne
+                                                    </span>
                                                 </div>
 
                                                 <div className="activity-item">
                                                     <p>🎣 Lisäsit saaliin</p>
-                                                    <span>15.11.2025 - Ahven, Vesijärvi</span>
+                                                    <span>
+                                                        15.11.2025 - Ahven, Vesijärvi
+                                                    </span>
                                                 </div>
                                             </>
                                         )}
@@ -134,15 +106,39 @@ export default function ClientFrontPage() {
                             </Card>
                         </motion.div>
 
-                        {/* ACHIEVEMENTS */}
-                        <motion.div
-                            className="card"
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                        >
-                            <Card className="front-card">
+                        {/* WEATHER */}
+                        <motion.div whileHover={{ scale: 1.03 }}>
+                            <Card className="stat-card">
                                 <CardContent>
-                                    <h2>Saavutukset</h2>
+                                    <h2>🌦️ Sää tänään</h2>
+
+                                    <p className="muted">
+                                        Tarkista sää ennen kalastusta ☀️🌧️
+                                    </p>
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+
+                        {/* CHART */}
+                        <motion.div whileHover={{ scale: 1.03 }}>
+                            <Card className="stat-card">
+                                <CardContent>
+                                    <h2>📊 Saaliit kuukausittain</h2>
+
+                                    {loading ? (
+                                        <Skeleton height={200} />
+                                    ) : (
+                                        <CatchChart />
+                                    )}
+                                </CardContent>
+                            </Card>
+                        </motion.div>
+
+                        {/* ACHIEVEMENTS */}
+                        <motion.div whileHover={{ scale: 1.03 }}>
+                            <Card className="stat-card">
+                                <CardContent>
+                                    <h2>🏆 Saavutukset</h2>
 
                                     <div className="achievement">
                                         {loading ? (
@@ -152,8 +148,13 @@ export default function ClientFrontPage() {
                                             </>
                                         ) : (
                                             <>
-                                                <div>🏆 Pyydystit ensimmäisen kuhan</div>
-                                                <div>🏆 10 saalista saavutettu</div>
+                                                <div>
+                                                    🏆 Pyydystit ensimmäisen kuhan
+                                                </div>
+
+                                                <div>
+                                                    🏆 10 saalista saavutettu
+                                                </div>
                                             </>
                                         )}
                                     </div>

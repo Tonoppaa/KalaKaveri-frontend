@@ -74,7 +74,59 @@ const lakes = [
     { id: 47, name: "Mallasvesi", city: "Pälkäne", coords: [61.3, 24.2], fish: ["Kuha", "Ahven"] },
     { id: 48, name: "Pyhävesi", city: "Kitee", coords: [62.1, 30.1], fish: ["Ahven", "Hauki"] },
     { id: 49, name: "Suolijärvi", city: "Tampere", coords: [61.5, 23.7], fish: ["Ahven", "Hauki"] },
-    { id: 50, name: "Tohloppijärvi", city: "Tampere", coords: [61.5, 23.7], fish: ["Ahven", "Hauki"] }
+    { id: 50, name: "Tohloppijärvi", city: "Tampere", coords: [61.5, 23.7], fish: ["Ahven", "Hauki"] },
+    { id: 51, name: "Sääksjärvi", city: "Nurmijärvi", coords: [60.5, 24.7], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 52, name: "Kukkia", city: "Pälkäne", coords: [61.3, 24.5], fish: ["Ahven", "Hauki", "Kuha"] },
+    { id: 53, name: "Juojärvi", city: "Heinävesi", coords: [62.8, 28.6], fish: ["Taimen", "Kuha", "Ahven"] },
+    { id: 54, name: "Kolima", city: "Viitasaari", coords: [63.1, 25.9], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 55, name: "Kivijärvi", city: "Kivijärvi", coords: [63.1, 25.1], fish: ["Ahven", "Hauki", "Kuha"] },
+    { id: 56, name: "Kuohijärvi", city: "Pälkäne", coords: [61.4, 24.6], fish: ["Ahven", "Hauki"] },
+    { id: 57, name: "Kyrösjärvi", city: "Ikaalinen", coords: [61.8, 23.0], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 58, name: "Vahvajärvi", city: "Padasjoki", coords: [61.3, 25.0], fish: ["Ahven", "Hauki"] },
+    { id: 59, name: "Isojärvi", city: "Kuhmoinen", coords: [61.8, 25.0], fish: ["Ahven", "Hauki", "Taimen"] },
+    { id: 60, name: "Liesjärvi", city: "Tammela", coords: [60.8, 23.9], fish: ["Ahven", "Hauki"] },
+
+    { id: 61, name: "Pielisjärvi", city: "Joensuu", coords: [62.6, 29.8], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 62, name: "Tarjanne", city: "Ruovesi", coords: [62.0, 23.7], fish: ["Kuha", "Ahven"] },
+    { id: 63, name: "Ähtärinjärvi", city: "Ähtäri", coords: [62.6, 24.1], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 64, name: "Pääjärvi", city: "Hyvinkää", coords: [60.6, 24.8], fish: ["Ahven", "Hauki"] },
+    { id: 65, name: "Lammasjärvi", city: "Kuhmo", coords: [64.1, 29.5], fish: ["Ahven", "Hauki"] },
+
+    { id: 66, name: "Ontojärvi", city: "Kuhmo", coords: [64.3, 29.0], fish: ["Taimen", "Ahven"] },
+    { id: 67, name: "Lentua", city: "Kuhmo", coords: [64.2, 29.3], fish: ["Taimen", "Ahven"] },
+    { id: 68, name: "Siikajärvi", city: "Espoo", coords: [60.3, 24.6], fish: ["Ahven", "Hauki"] },
+    { id: 69, name: "Bodomjärvi", city: "Espoo", coords: [60.3, 24.7], fish: ["Ahven", "Hauki"] },
+    { id: 70, name: "Nuasjärvi", city: "Sotkamo", coords: [64.1, 28.4], fish: ["Kuha", "Ahven", "Hauki"] },
+
+    { id: 71, name: "Jerisjärvi", city: "Muonio", coords: [67.9, 24.1], fish: ["Taimen", "Harjus"] },
+    { id: 72, name: "Miekojärvi", city: "Pello", coords: [66.9, 24.9], fish: ["Hauki", "Ahven"] },
+    { id: 73, name: "Alajärvi", city: "Alajärvi", coords: [63.0, 23.8], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 74, name: "Evijärvi", city: "Evijärvi", coords: [63.4, 23.5], fish: ["Ahven", "Hauki"] },
+    { id: 75, name: "Keurusselkä", city: "Keuruu", coords: [62.3, 24.5], fish: ["Kuha", "Ahven"] },
+
+    { id: 76, name: "Pihlajavesi", city: "Keuruu", coords: [62.0, 24.3], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 77, name: "Hankavesi", city: "Ähtäri", coords: [62.4, 24.2], fish: ["Ahven", "Hauki"] },
+    { id: 78, name: "Karhijärvi", city: "Pori", coords: [61.4, 21.9], fish: ["Ahven", "Hauki"] },
+    { id: 79, name: "Vehkajärvi", city: "Pälkäne", coords: [61.5, 24.6], fish: ["Ahven", "Hauki"] },
+    { id: 80, name: "Kukkasjärvi", city: "Orivesi", coords: [60.9, 24.4], fish: ["Ahven"] },
+
+    { id: 81, name: "Sorsavesi", city: "Suonenjoki", coords: [62.8, 27.5], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 82, name: "Suontee", city: "Joutsa", coords: [62.7, 26.7], fish: ["Kuha", "Ahven"] },
+    { id: 83, name: "Kyyvesi", city: "Mikkeli", coords: [61.9, 26.4], fish: ["Kuha", "Ahven", "Hauki"] },
+    { id: 84, name: "Nilijärvi", city: "Kuusamo", coords: [66.2, 28.9], fish: ["Taimen", "Ahven"] },
+    { id: 85, name: "Vaskivesi", city: "Virrat", coords: [62.1, 23.8], fish: ["Kuha", "Ahven"] },
+
+    { id: 86, name: "Palovesi", city: "Virrat", coords: [62.0, 23.9], fish: ["Kuha", "Ahven"] },
+    { id: 87, name: "Kyrkösjärvi", city: "Seinäjoki", coords: [62.8, 22.8], fish: ["Ahven", "Hauki"] },
+    { id: 88, name: "Lahnavesi", city: "Kuopio", coords: [62.6, 27.9], fish: ["Kuha", "Ahven"] },
+    { id: 89, name: "Oijärvi", city: "Ii", coords: [65.9, 25.5], fish: ["Ahven", "Hauki"] },
+    { id: 90, name: "Kuivasjärvi", city: "Oulu", coords: [64.7, 25.7], fish: ["Ahven", "Hauki"] },
+
+    { id: 91, name: "Korpijärvi", city: "Jyväskylä", coords: [62.2, 27.0], fish: ["Kuha", "Ahven"] },
+    { id: 92, name: "Suojärvi", city: "Ilomantsi", coords: [62.4, 30.5], fish: ["Taimen", "Ahven"] },
+    { id: 93, name: "Nerosjärvi", city: "Kuopio", coords: [62.9, 27.2], fish: ["Kuha", "Ahven"] },
+    { id: 94, name: "Valkeinen", city: "Kuopio", coords: [63.2, 27.1], fish: ["Ahven"] },
+    { id: 95, name: "Saarijärvi", city: "Saarijärvi", coords: [62.7, 25.3], fish: ["Kuha", "Ahven", "Hauki"] }
 ];
 
 export default function LocationsPage() {
