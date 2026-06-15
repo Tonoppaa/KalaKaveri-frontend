@@ -2,7 +2,7 @@ import ClientNavbar from "../ClientNavbar/ClientNavbar";
 import "./ClientFishBank.css";
 
 import { Card, CardContent } from "../UI/Card";
-import { Fish } from "lucide-react";
+import { Fish, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ const fishData = [
         latin: "Perca fluviatilis",
         size: "0.2 – 1.5 kg",
         habitat: "Järvet, joet",
-        image: "https://via.placeholder.com/300x200"
+        image: "images/perch.jpg"
     },
     {
         id: 2,
@@ -200,6 +200,14 @@ export default function ClientFishBank() {
                                 exit={{ scale: 0.8 }}
                                 onClick={(e) => e.stopPropagation()}
                             >
+                                <motion.button
+                                    className="browse-modal-close"
+                                    onClick={() => setSelectedFish(null)}
+                                    whileHover={{ scale: 1.15 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <X size={24} />
+                                </motion.button>
                                 <img src={selectedFish.image}
                                     alt=""
                                     className="browse-modal-image" />

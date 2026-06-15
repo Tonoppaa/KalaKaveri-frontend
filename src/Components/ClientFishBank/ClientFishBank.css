@@ -1,0 +1,27 @@
+.browse-modal-content {
+    position: relative;
+}
+
+.browse-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+
+    font-size: 24px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.browse-modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+}

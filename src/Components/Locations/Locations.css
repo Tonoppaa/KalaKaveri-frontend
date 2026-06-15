@@ -40,3 +40,7 @@
 .popup-content p {
     margin: 5px 0;
 }
+
+.popup-content {
+    cursor: pointer;
+}

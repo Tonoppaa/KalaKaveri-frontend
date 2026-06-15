@@ -3,7 +3,7 @@ import "../ClientNavbar/ClientNavbar.css";
 import "./ClientBrowseCatch.css";
 
 import { Card, CardContent } from "../UI/Card";
-import { Fish, Calendar, Weight, MapPin } from "lucide-react";
+import { Fish, X, Calendar, Weight, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ const catches = [
         species: "Ahven",
         weight: "1.2 kg",
         date: "2026-04-01",
-        image: "https://via.placeholder.com/300x200",
+        image: "images/perch.jpg",
         location: "Tohloppijärvi"
     },
     {
@@ -112,6 +112,14 @@ export default function ClientBrowseCatch() {
                                 exit={{ scale: 0.8 }}
                                 onClick={(e) => e.stopPropagation()}
                             >
+                                <motion.button
+                                    className="browse-modal-close"
+                                    onClick={() => setSelectedCatch(null)}
+                                    whileHover={{ scale: 1.15 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <X size={24} />
+                                </motion.button>
                                 <img src={selectedCatch.image}
                                     alt=""
                                     className="browse-modal-image" />
@@ -119,6 +127,7 @@ export default function ClientBrowseCatch() {
                                 <h2>{selectedCatch.species}</h2>
                                 <p>⚖️ {selectedCatch.weight}</p>
                                 <p>📅 {selectedCatch.date}</p>
+                                <p>📍 {selectedCatch.location}</p>
                             </motion.div>
                         </motion.div>
                     )}

@@ -4,8 +4,8 @@ import "./Locations.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, X } from "lucide-react";
 
 // Fix marker icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -131,6 +131,7 @@ const lakes = [
 
 export default function LocationsPage() {
     const [search, setSearch] = useState("");
+    const [selectedLake, setSelectedLake] = useState(null);
 
     const filtered = lakes.filter(l =>
         l.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -170,17 +171,63 @@ export default function LocationsPage() {
                         {filtered.map((lake) => (
                             <Marker key={lake.id} position={lake.coords}>
                                 <Popup>
-                                    <div className="popup-content">
+                                    <div
+                                        className="popup-content"
+                                        onClick={() => setSelectedLake(lake)}
+                                    >
                                         <h3>{lake.name}</h3>
                                         <p><MapPin size={14} /> {lake.city}</p>
                                         <p>🐟 {lake.fish.join(", ")}</p>
+
+                                        <small>Lue lisää klikkaamalla...</small>
                                     </div>
                                 </Popup>
                             </Marker>
                         ))}
                     </MapContainer>
                 </div>
+                <AnimatePresence>
+                    {selectedLake && (
+                        <motion.div
+                            className="browse-modal-container"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedLake(null)}
+                        >
+                            <motion.div
+                                className="browse-modal-content"
+                                initial={{ scale: 0.8 }}
+                                animate={{ scale: 1 }}
+                                exit={{ scale: 0.8 }}
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <motion.button
+                                    className="browse-modal-close"
+                                    onClick={() => setSelectedLake(null)}
+                                    whileHover={{ scale: 1.15 }}
+                                    whileTap={{ scale: 0.9 }}
+                                >
+                                    <X size={24} />
+                                </motion.button>
 
+                                <h2>{selectedLake.name}</h2>
+
+                                <p>
+                                    <MapPin size={16} /> {selectedLake.city}
+                                </p>
+
+                                <h3>Kalalajit</h3>
+
+                                <ul>
+                                    {selectedLake.fish.map((fish) => (
+                                        <li key={fish}>{fish}</li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </>
     );
